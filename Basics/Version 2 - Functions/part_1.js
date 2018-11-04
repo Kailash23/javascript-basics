@@ -1,14 +1,5 @@
-// display function
+// function for display and adding a todo
 
-var todos = ['item 1', 'item 2', 'item 3'];
-
-function displayTodos() {
-	console.log('My Todos: ', todos);
-}
-
-displayTodos();
-
-// function for adding a todo
 var todos = ['item 1', 'item 2', 'item 3'];
 
 function displayTodos() {

@@ -1,12 +1,5 @@
-// translated object
-
-// {
-//   operatingSystem: 'Mac',
-//   screenSize: '15 inches',
-//   purchaseYear: 2011
-// }
-
 // assigning an object to a variable
+
 var myComputer = {
 	operatingSystem: 'Mac',
 	screenSize: '15 inches',
