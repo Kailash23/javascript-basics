@@ -26,8 +26,10 @@ var todoList = {
 			}
 		});
 		this.todos.forEach(function(todo) {
+			// If everything's true, make everything false.
 			if (completedTodos === totalTodos) {
 				todo.completed = false;
+			// Otherwise, make everything true.
 			} else {
 				todo.completed = true;
 			}
@@ -73,11 +75,13 @@ var view = {
 		todoList.todos.forEach(function(todo, position) {
 			var todoLi = document.createElement('li');
 			var todoTextWithCompletion = '';
+
 			if (todo.completed === true) {
 				todoTextWithCompletion = '(x) ' + todo.todoText;
 			} else {
 				todoTextWithCompletion = '( ) ' + todo.todoText;
 			}
+
 			todoLi.id = position;
 			todoLi.textContent = todoTextWithCompletion;
 			todoLi.appendChild(this.createDeleteButton());
@@ -95,10 +99,11 @@ var view = {
 		var todosUl = document.querySelector('ul');
 
 		todosUl.addEventListener('click', function(event) {
-			console.log(event.target.parentNode.id);
+			// Get the element that was clicked on.
 			var elementClicked = event.target;
 
-			if (elementClicked.className = "deleteButton") {
+			 // Check if elementClicked is a delete button.
+			if (elementClicked.className === "deleteButton") {
 				handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
 			}
 		});
