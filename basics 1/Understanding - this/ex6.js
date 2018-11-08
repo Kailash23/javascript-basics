@@ -17,6 +17,7 @@ boundOnce.bind({
 boundOnce.apply({
 	name: 'why even try?'
 });
+
 boundOnce.call({
 	name: 'why even try?'
 });

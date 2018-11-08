@@ -5,6 +5,7 @@ function logThis() {
 logThis.apply({
 	name: 'Gordan'
 });
+
 logThis.call({
 	name: 'Gordan'
 });
