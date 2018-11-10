@@ -33,7 +33,7 @@ function forEach(myArray, myFunction){
 	}
 }
 
-forEach(students, function(student){
+forEach(students, function (student){
 	console.log(student);
 })
 

@@ -1,4 +1,4 @@
-setTimeout(function() {
+setTimeout(function () {
 	console.log('Wake up Jordan!');
 }, 5000);
 

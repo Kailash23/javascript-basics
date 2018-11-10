@@ -2,25 +2,25 @@
 
 var todoList = {
 	todos : [],
-	displayTodo: function() {
+	displayTodo: function () {
 		console.log('My Todos', this.todos);
 	},
-	addTodo: function(todoText) {
+	addTodo: function (todoText) {
 		this.todos.push({
 			todoText: todoText,
 			completed: false
 		});
 		this.displayTodo();
 	},
-	changeTodo: function(position, todoText) {
+	changeTodo: function (position, todoText) {
 		this.todos[position].todoText = todoText;
 		this.displayTodo();
 	},
-	deleteTodo: function(position) {
+	deleteTodo: function (position) {
 		this.todos.splice(position, 1);
 		this.displayTodo();
 	},
-	toggleCompleted: function(position) {
+	toggleCompleted: function (position) {
 		var todo = this.todos[position];
 		todo.completed = !todo.completed;
 		this.displayTodo();

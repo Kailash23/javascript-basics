@@ -2,7 +2,7 @@
 
 var gordon = {
 	name: 'Gordon',
-	sayName: function() {
+	sayName: function () {
 		console.log(this);
 	}
 };

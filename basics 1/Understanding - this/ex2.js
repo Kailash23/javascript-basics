@@ -1,5 +1,5 @@
 var myObject = {
-  myMethod: function() {
+  myMethod: function () {
     console.log(this);
   }
 };

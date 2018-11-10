@@ -2,7 +2,7 @@
 
 var gordon = {
 	name: 'Gordon',
-	sayName: function() {
+	sayName: function () {
 		console.log(this.name);
 	}
 };
@@ -15,7 +15,6 @@ var gordon = {
 // };
 
 console.log(gordon.sayName());
-
 /*
   Gordon
  */
