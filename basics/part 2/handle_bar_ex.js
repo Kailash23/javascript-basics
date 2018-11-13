@@ -44,13 +44,17 @@ handlebarsTemplate(data);
 
 var htmlTemplate = '<div>{{#if show}}TRUE{{/if}}</div>';
 var handlebarsTemplate = Handlebars.compile(htmlTemplate);
-handlebarsTemplate({show: true});
+handlebarsTemplate({
+	show: true
+});
 
 /*
   "<div>TRUE</div>"
 */
 
-handlebarsTemplate({show: false});
+handlebarsTemplate({
+	show: false
+});
 
 /*
   "<div></div>"

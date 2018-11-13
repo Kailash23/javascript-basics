@@ -1,4 +1,4 @@
-[1, 2, 3].reduce(function() {		// starting value is passed
+[1, 2, 3].reduce(function() {		// will run arr.len times
 	console.log('hi');
 }, 0);
 
@@ -8,7 +8,7 @@
   hi
 */
 
-[6, 2, 3].reduce(function() {		// Starting value is element at pos 0
+[1, 2, 3].reduce(function() {		// will run arr.len - 1 times
 	console.log('hi');
 });
 

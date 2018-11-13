@@ -1,4 +1,4 @@
-[1, 2, 3].forEach(function(){
+[1, 2, 3].forEach(function() {
 	console.log('Hi!');
 });
 

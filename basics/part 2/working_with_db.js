@@ -15,7 +15,7 @@ localStorage.setItem('newDb', 'new note changed')
 // undefined
 localStorage.getItem('newDb')
 // "new note changed"
-localStorage.setItem('newData', [1,2,3])
+localStorage.setItem('newData', [1, 2, 3])
 // undefined
 localStorage.getItem('newData')
 //"1,2,3"
@@ -24,14 +24,12 @@ localStorage.setItem('newData', [{}, {}, {}])
 localStorage.getItem('newData')
 // "[object Object],[object Object],[object Object]"
 
-
 var objectArray = [{name: 'Jugger'}, {name: 'Axe'}]
 // undefined
 JSON.stringify(objectArray)
 // "[{"name":"Jugger"},{"name":"Axe"}]"
 var objectArray = [{name: 'Jugger'}, {name: 'Axe'}]
-// undefined
-JSON.stringify(objectArray)
+// undefinedJSON.stringify(objectArray)
 // "[{"name":"Jugger"},{"name":"Axe"}]"
 var stringVersionOfArray = JSON.stringify(objectArray)
 // undefined
