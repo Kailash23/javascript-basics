@@ -1,0 +1,107 @@
+<script src="../tinytest.js"></script>
+<script src="filter.js"></script>
+
+<script>
+	/*
+			var newArray = arr.filter(callback(element[, index[, array]])[, thisArg])
+
+			[] - used for representing optional arguments
+
+			- callback
+			 	- element
+				- index
+				- array
+			- thisArg
+
+			[] - used for representing optional arguments
+		*/
+
+	/*
+		Example 1:
+		forEach([1, 2, 3], function() {});
+
+		Example 2:
+		forEach([1, 2, 3], function(number) {
+		    console.log(number);
+		});
+
+		Example 3:
+		forEach([1, 2, 3], function(number, index) {
+			console.log(index);
+		});
+
+		Example 4:
+		forEach([1, 2, 3], function(number, index, originalArray) {
+			console.log(originalArray);
+		});
+
+		Example 5:
+		filter([1, 2, 3], function() {
+			console.log(this.name);
+		}, {name: 'Jordan'});
+
+		Example 6:
+		var testArray = [1, 2, 3];
+		var filterArray = filter(testArray, function() {});
+		testArray !== filterArray
+		});
+
+		Example 7:
+		var testArray = [1, 2, 3];
+		var filterArray = filter(testArray, function(element) {
+		    return element > 1;
+		});
+		Expect filterArray to be [2, 3]
+
+	*/
+
+	tests({
+		'It should run the callback function array.length times.': function() {
+			var numberOfTimesCallbackHasRun = 0;
+			filter([1, 2, 3], function() {
+				numberOfTimesCallbackHasRun++;
+			});
+			eq(numberOfTimesCallbackHasRun, 3);
+		},
+		'It should pass in the ith element as the first argument to the callback.': function() {
+			filter([1], function(number) {
+				eq(number, 1);
+			});
+		},
+		'It should pass in the ith position as the second argument to the callback.': function() {
+			filter([1], function(number, index) {
+				eq(index, 0);
+			});
+		},
+		'It should pass in the original array as the third argument to the callback.': function() {
+			var testArray = [1, 2, 3];
+			filter(testArray, function(number, index, originalArray) {
+				eq(testArray, originalArray);
+			});
+		},
+		'It should accept a optional this object.': function() {
+			filter([1], function() {
+				// Inside of here, this should be equal to configurableThisObject.
+				eq(this.description, 'I should be accessible inside callback.');
+			}, {description: 'I should be accessible inside callback.'});
+		},
+		'It should return a array.': function() {
+			var filteredArray = filter([], function() {});
+			eq(Array.isArray(filteredArray), true);
+		},
+		'It should return a new array, not the array being filtered.': function() {
+			var arrayBeingFiltered = [];
+			var filteredArray = filter(arrayBeingFiltered, function() {});
+			eq(filteredArray !== arrayBeingFiltered, true);
+		},
+		'It should return a ne]w array that only has elements where callback returns true': function() {
+			var filteredArray = filter([1, 2], function(number) {
+				return number > 1;
+			});
+			eq(filteredArray.length, 1);
+			eq(filteredArray[0], 2);
+		}
+	});
+</script>
+
+<!-- Test driven programming can shape the way you program  -->

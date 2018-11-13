@@ -37,9 +37,7 @@ console.log(filterArray)
 
 var filterArray = [1, 2, 3].filter(function(elemnt, index, array) {
 	console.log(this.myFavProgrammingSite);
-}, {
-	myFavProgrammingSite: 'Watch and Code'
-});
+}, {myFavProgrammingSite: 'Watch and Code'});
 
 /*
   Watch and Code
