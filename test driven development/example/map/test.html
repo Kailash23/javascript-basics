@@ -1,0 +1,112 @@
+<script src="../tinytest.js"></script>
+<script src="map.js"></script>
+
+<script>
+	/*
+			var newArray = arr.filter(callback(element[, index[, array]])[, thisArg])
+
+			[] - used for representing optional arguments
+
+			- callback
+			 	- currentValue
+				- index
+				- array
+			- thisArg
+		*/
+
+	/*
+		Example 1: Callback should run 3 times.
+		map([1, 2, 3], function() {});
+
+		Example 2: Calback has access to ith element.
+		map([1, 2, 3], function(number) {
+		    console.log(number);
+		});
+
+		Example 3: Callback has access to index.
+		map([1, 2, 3], function(number, index) {
+			console.log(index);
+		});
+
+		Example 4: Callback has access to originalArray.
+		map([1, 2, 3], function(number, index, originalArray) {
+			console.log(originalArray);
+		});
+
+		Example 5: Optional this.
+		map([1, 2, 3], function() {
+			console.log(this.name);
+		}, {name: 'Jordan'});
+
+		Example 6:
+		var originalArray = [1, 2, 3];
+		var mappedArray = map(originalArray, function() {});
+		originalArray !== mappedArray
+		});
+
+		Example 7:
+		var originalArray = [1, 2, 3];
+		var mappedArray = map(originalArray, function(element) {
+		    return element * 2;
+		});
+		Expect mappedArray to be [2, 4, 6]
+
+	*/
+
+	tests({
+		'It should run the callback function array.length times.': function() {
+			var numberOfTimesCallbackHasRun = 0;
+			map([1, 2, 3], function() {
+				numberOfTimesCallbackHasRun++;
+			});
+			eq(numberOfTimesCallbackHasRun, 3);
+		},
+		'It should pass in the ith element as the first argument to the callback.': function() {
+			map([1], function(number) {
+		 		eq(number, 1);
+			});
+		},
+		'It should pass in the ith position as the second argument to the callback.': function() {
+			map([1], function(number, index) {
+				eq(index, 0);
+			});
+		},
+		'It should pass in the original array as the third argument to the callback.': function() {
+			var testArray = [1, 2, 3];
+			map(testArray, function(number, index, originalArray) {
+				eq(testArray, originalArray);
+			});
+		},
+		'It should accept a optional this object.': function() {
+			map([1], function() {
+				// Inside of here, this should be equal to configurableThisObject.
+				eq(this.description, 'I should be accessible inside callback.');
+			}, {description: 'I should be accessible inside callback.'});
+		},
+		'It should return a array.': function() {
+			var mappedArray = map([], function() {});
+			eq(Array.isArray(mappedArray), true);
+		},
+		'It should return a new array, not the originalArray.': function() {
+			var originalArray = [];
+			var mappedArray = map(originalArray, function() {});
+			eq(mappedArray !== originalArray, true);
+		},
+		'It should return a mapped array.': function() {
+			var mappedArray = map([1], function(number) {
+				return number * 2;
+			});
+			eq(mappedArray[0], 2);
+		},
+		'It should skip unassigned indexes': function() {
+			var weirdArray = [, 1];
+			var mappedArray = map(weirdArray, function double(number) {
+				return number * 2;
+			});
+			eq(0 in mappedArray, false);
+			eq(mappedArray[1], 2);
+		}
+	});
+</script>
+
+<!-- Test driven programming can shape the way you program  -->
