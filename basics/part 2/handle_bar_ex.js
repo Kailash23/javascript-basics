@@ -9,13 +9,7 @@ handlebarsTemplate({
 */
 
 var data = {
-	todos: [{
-		title: 'First'
-	}, {
-		title: 'Second'
-	}, {
-		title: 'Third'
-	}]
+	todos: [{title: 'First'}, {title: 'Second'}, {title: 'Third'}]
 };
 var htmlTemplate = '<ul> {{#todos}} <li>{{title}}</li> {{/todos}} </ul>';
 var handlebarsTemplate = Handlebars.compile(htmlTemplate);
@@ -26,13 +20,9 @@ handlebarsTemplate(data);
   "<ul>  <li>First</li>  <li>Second</li>  <li>Third</li>  </ul>"
 */
 
-var data = [{
-	title: 'First'
-}, {
-	title: 'Second'
-}, {
-	title: 'Third'
-}];
+var data = {
+	todos: [{title: 'First'}, {title: 'Second'}, {title: 'Third'}]
+};
 var htmlTemplate = '<ul> {{#this}} <li>{{title}}</li> {{/this}} </ul>';
 var handlebarsTemplate = Handlebars.compile(htmlTemplate);
 

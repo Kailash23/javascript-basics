@@ -1,4 +1,4 @@
-[1, 2, 3].reduce(function() {		// will run arr.len times
+[1, 2, 3].reduce(function() { // will run arr.len times
 	console.log('hi');
 }, 0);
 
@@ -8,7 +8,7 @@
   hi
 */
 
-[1, 2, 3].reduce(function() {		// will run arr.len - 1 times
+[1, 2, 3].reduce(function() { // will run arr.len - 1 times
 	console.log('hi');
 });
 
@@ -28,7 +28,7 @@ console.log(sum);
 */
 
 var sum = [1, 2, 3].reduce(function(accumulator, currentValue, currentIndex, array) {
-		return accumulator + currentValue;
+	return accumulator + currentValue;
 });
 
 console.log(sum);
@@ -39,10 +39,28 @@ console.log(sum);
 
 var sum = [1, 2, 3].reduce(function(prevValue, currentValue) {
 	return prevValue + currentValue;
-}, 10);		// Initial value
+}, 10); // Initial value
 
 console.log(sum);
 
 /*
   16
+*/
+
+function reduce(array, callback, startingValue) {
+	var resultSoFar = startingValue;
+	for (var i = 0; i < array.length; i++) {
+		resultSoFar = callback(resultSoFar, array[i]);
+	}
+	return resultSoFar;
+}
+
+var res = reduce(['j', 'o', 'r', 'd', 'a', 'n'], function(resultSoFar, nextLetter) {
+	return resultSoFar + nextLetter;
+}, '');
+
+console.log(res);
+
+/*
+  jordan
 */

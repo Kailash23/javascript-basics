@@ -1,7 +1,7 @@
 var myFakeElement = {};
 
 var myFakeElement = {
-	on: function (something) {
+	on: function(something) {
 		console.log('Running .on with ' + something);
 	}
 };
