@@ -60,7 +60,7 @@ var TinyTest = {
 	},
 
 	fail: function(msg) {
-		throw new Error('fail(): ' + msg);
+		throw new Error('fail(): ' + msg);		// Constructor Function
 	},
 
 	assert: function(value, msg) {
@@ -79,7 +79,7 @@ var TinyTest = {
 		if (expected !== actual) {
 			throw new Error('assertStrictEquals() "' + expected + '" !== "' + actual + '"');
 		}
-	},
+	}
 
 };
 
