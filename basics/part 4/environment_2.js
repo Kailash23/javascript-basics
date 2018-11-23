@@ -7,6 +7,7 @@
 // 2. Use: librarySystem('libraryName');
 
 (function() {
+	// Create the local library object, to be exported or referenced globally latter.
 	var libraryStorage = {};
 
 	function librarySystem(libraryName, callback) {
