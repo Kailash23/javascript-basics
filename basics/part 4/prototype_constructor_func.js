@@ -3,11 +3,11 @@ function Dog() {	// Capitalize first letter
 	// this is returned
 }
 
-var testDog = new Dog();
+var testDog = new Dog();	// For constructor function new must be used
 testDog
 
 /*
-  Dog {}
+  Dog {}	// empty object
 */
 
 function Dog(name) {
@@ -23,7 +23,9 @@ testDog
   Dog {name: "test dog"}
 */
 
-function Dog(name) {
+// APPROACH 1
+
+function Dog(name) {	// Capatalize constructor function
 	this.name = name;
 	this.fetch = function() {};
 }
@@ -34,7 +36,7 @@ var randomDog = new Dog('Hey');
 Object.getPrototypeOf(myDog)
 
 /*
-	{constructor: ƒ}
+	{constructor: ƒ}			// same as below
 	constructor: ƒ Dog()
 	__proto__: Object
 */
@@ -42,7 +44,7 @@ Object.getPrototypeOf(myDog)
 Dog.prototype
 
 /*
-  {constructor: ƒ}constructor: ƒ Dog()__proto__: Object
+  {constructor: ƒ}constructor: ƒ Dog()__proto__: Object		// same as above
 */
 
 Object.getPrototypeOf(myDog) === Dog.prototype
@@ -56,6 +58,8 @@ Object.getPrototypeOf(Dog.prototype)
 /*
   {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
 */
+
+// APPROACH 2
 
 function Dog(name) {
 	this.name = name;
@@ -140,7 +144,7 @@ Object.getPrototypeOf(myObject) === Object.prototype
 	> __proto__
 */
 
-var normalArray = [];
+var normalArray = [];		// [] ==> new Array()
 normalArray
 
 /*
@@ -236,4 +240,15 @@ Object.getPrototypeOf(constructorArray)
 	Symbol(Symbol.iterator): ƒ values()
 	Symbol(Symbol.unscopables): {copyWithin: true, entries: true, fill: true, find: true, findIndex: true, …}
 	__proto__: Object
+*/
+
+/*
+  __proto__ ==> substitute for object .getPrototypeOf
+*/
+
+var newObject = {};
+newObject
+
+/*
+  {}__proto__: Object
 */
