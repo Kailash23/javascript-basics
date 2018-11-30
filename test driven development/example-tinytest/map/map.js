@@ -11,3 +11,4 @@ function map(originalArray, callback, optionalThis) {
 	}
 	return mappedArray;
 }
+ 

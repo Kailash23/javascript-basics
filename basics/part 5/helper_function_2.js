@@ -36,7 +36,7 @@ toString.call([]) === '[object Object]'
   false
 */
 
-toString.call({name: 'gordan'}) === '[object Object]'
+toString.call({	name: 'gordan'}) === '[object Object]'
 /*
   true
 */
@@ -136,7 +136,124 @@ for (property in myDog) {
 */
 
 // Back to default function
-defaults({color: null}, {color: 'grey',	wheels: 4})	// Edge case
+defaults({color: null}, {color: 'grey',	wheels: 4}) // Edge case
 /*
   {color: null, wheels: 4}
+*/
+
+'gordan'.match('g')
+/*
+  ["g", index: 0, input: "gordan", groups: undefined]
+*/
+
+'gordan'.match('k')
+/*
+  null
+*/
+
+'gordan'.replace('g', 'j')
+/*
+  jordan
+*/
+
+10.265.toFixed()
+/*
+  "10"
+*/
+
+10.265.toFixed(2)
+/*
+  "10.27"
+*/
+
+// Technique 1
+10.235.toFixed(2) // toFixed is not working thats because of the number representation as a power of 2
+/*
+  "10.23"
+*/
+
+// Technique 2
+Math.round(10.235 * 100) / 100
+/*
+  10.24
+*/
+
+0.62.toFixed(2)
+/*
+  "0.62"	// Used to return a string
+*/
+
+0.62.toFixed(3)
+/*
+  "0.620"	// Used for formatting
+*/
+
+1.005 * 100
+/*
+  100.49999999999999
+*/
+
+Math.round(1.005 * 100)
+/*
+  100
+*/
+
+// Appraoch 1
+1.005e2 // 1.005 * 10^2 -> A better way of writing 1.005 * 100 (move decimal points)
+/*
+  100.5
+*/
+
+// Approach 2
+1.005 * 100
+/*
+  100.49999999999999
+*/
+
+Math.round(1.00e2)
+/*
+  101
+*/
+
+Math.round(1.005e2) / 100
+/*
+  1.01
+*/
+
+Math.round(1.005e2)
+/*
+  101
+*/
+
+101 + 'e-2'
+/*
+  "101e-2"
+*/
+
+Number("101e-2")
+/*
+  1.01
+*/
+
+// Better toFixed method
+function betterToFixed(value, precision) {
+	var exponentialForm = Number(value + 'e' + precision);
+	var rounded = Math.round(exponentialForm);
+	var finalResult = Number(rounded + 'e-' + precision);
+	return finalResult.toFixed(2);
+}
+
+betterToFixed(1.005, 2)
+/*
+  "1.01"
+*/
+
+betterToFixed(.615, 2)
+/*
+  "0.62"
+*/
+
+betterToFixed(10.235, 2)
+/*
+  "10.24"
 */
