@@ -58,6 +58,14 @@ function checkPrecision(val, base) {
  * 	object
  */
 
+// Scenarios: High level Understanding.
+// A: Valid string     ==>   convert string to  a format Object
+// B: Invalid string   ==>   use default and turn it to an obj if it's not already.
+// C: Valid object	   ==>   leave the object alone
+// D: Invalid object   ==>   use default and turn it to an obj if it's not already.
+// E: Function         ==>   depends on what the function Returns
+// F: Nothing   	   ==>   use default and turn it to an obj if it's not already.
+
 function checkCurrencyFormat(format) {
 	// Default value will be "%s%v" tp start.
 	var defaults = lib.settings.currency.format;

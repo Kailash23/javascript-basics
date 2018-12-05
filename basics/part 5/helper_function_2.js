@@ -240,7 +240,7 @@ function betterToFixed(value, precision) {
 	var exponentialForm = Number(value + 'e' + precision);
 	var rounded = Math.round(exponentialForm);
 	var finalResult = Number(rounded + 'e-' + precision);
-	return finalResult.toFixed(2);
+	return finalResult.toFixed(precision);		// converting result in to string
 }
 
 betterToFixed(1.005, 2)
