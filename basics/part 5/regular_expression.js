@@ -1,3 +1,9 @@
+/*
+  Two ways of creating regular expression
+  1> var re = /ab+c/;
+  2> var re = new RegExp('ab+c');
+*/
+
 // Its a concise way to look for patterns in strings
 
 'gordy'.match(/g/)
@@ -160,6 +166,13 @@ myPassword.match(/[A-Z]/g).length;
 'DONT!be*a^framework-chaser'.match(/[a-zA-Z]{1,}/g);
 /*
   (5) ["DONT", "be", "a", "framework", "chaser"]
+*/
+
+/*
+	Matches the preceding expression 1 or more times. Equivalent to {1,}.
+
+	For example, /a+/ matches the 'a' in "candy" and all the a's in "caaaaaaandy",
+	but nothing in "cndy".
 */
 
 'DONT!be*a^framework-chaser'.match(/[a-zA-Z]+/g);
